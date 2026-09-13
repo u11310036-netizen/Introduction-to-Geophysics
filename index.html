@@ -1,0 +1,1206 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>地球物理通論 (General Geophysics) ｜ 課程綜整與第一堂課學習探究報告</title>
+  <meta name="description" content="臺北市立大學 地球環境暨生物資源學系 115學年度第1學期《地球物理通論》課程綜整報告：涵蓋18週學習路線、第一堂課三小時任務地圖、CER論證、DEAR建模循環、CLIL雙語語料庫與AI Agent協作工作流。">
+  <meta name="author" content="陳達毅（Dayi Chen）/ 數位學習成果報告">
+  
+  <!-- Modern Typography Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600;700&family=Noto+Sans+TC:wght@400;500;700&family=Outfit:wght@400;600;700;800&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="style.css">
+</head>
+<body data-lang-mode="bilingual">
+
+  <!-- ========================================================================
+       Top Navigation Header
+       ======================================================================== -->
+  <header class="app-header">
+    <div class="brand-wrapper">
+      <button class="btn btn-secondary btn-icon-only" id="mobileMenuToggle" aria-label="切換選單" style="display: none;">☰</button>
+      <div class="brand-icon">GP</div>
+      <div class="brand-text">
+        <h1>地球物理通論 <span>General Geophysics</span></h1>
+        <div class="sub-title">臺北市立大學 地球環境暨生物資源學系 ｜ 課程綜整與學習探究報告</div>
+      </div>
+    </div>
+
+    <div class="header-controls">
+      <!-- Language Mode Switcher -->
+      <div class="control-pills" title="雙語顯示切換 (CLIL Bilingual View)">
+        <button class="pill-btn lang-pill active" data-lang="bilingual">中英對照</button>
+        <button class="pill-btn lang-pill" data-lang="zh">繁體中文</button>
+        <button class="pill-btn lang-pill" data-lang="en">English</button>
+      </div>
+
+      <!-- Theme Switcher -->
+      <button class="btn btn-secondary btn-icon-only" id="themeToggleBtn" title="切換明暗模式">☀️</button>
+
+      <!-- Print / Export Action -->
+      <button class="btn btn-primary btn-sm" onclick="window.print()" title="列印或匯出為 PDF 報告">
+        <span>🖨️ 匯出報告</span>
+      </button>
+    </div>
+  </header>
+
+  <!-- ========================================================================
+       App Layout: Sidebar + Main Content
+       ======================================================================== -->
+  <div class="app-layout">
+
+    <!-- Left Sticky Sidebar Navigation -->
+    <aside class="app-sidebar">
+      <div class="sidebar-heading">報告章節導航</div>
+      <ul class="nav-list">
+        <li><a href="#overview" class="nav-link active"><span class="icon">🧭</span><span class="text">1. 課程願景與三大支柱</span></a></li>
+        <li><a href="#roadmap" class="nav-link"><span class="icon">🗺️</span><span class="text">2. 18 週學習路線圖</span></a></li>
+        <li><a href="#timeline" class="nav-link"><span class="icon">⏱️</span><span class="text">3. 第一堂課 3 小時任務地圖</span></a></li>
+        <li><a href="#methods" class="nav-link"><span class="icon">🔬</span><span class="text">4. 地球物理核心方法與計算機</span></a></li>
+        <li><a href="#inquiry" class="nav-link"><span class="icon">💡</span><span class="text">5. CER 論證與 DEAR 建模</span></a></li>
+        <li><a href="#clil" class="nav-link"><span class="icon">🗣️</span><span class="text">6. CLIL 雙語科學語料庫</span></a></li>
+        <li><a href="#ai-agent" class="nav-link"><span class="icon">🤖</span><span class="text">7. 數位工作流與 AI Prompt</span></a></li>
+        <li><a href="#assessment" class="nav-link"><span class="icon">📝</span><span class="text">8. 評量標準與 Exit Ticket</span></a></li>
+      </ul>
+
+      <!-- Course Meta Card -->
+      <div class="sidebar-course-card">
+        <div class="label"><span>📌</span> 課程基本資訊</div>
+        <p><strong>學期：</strong>第 115 學年第 1 學期</p>
+        <p><strong>授課教師：</strong>陳達毅（Dayi Chen）</p>
+        <p><strong>開課對象：</strong>地生系大二（週三 09:00–12:00）</p>
+        <p><strong>成果目標：</strong>GitHub Pages 公開專題網頁與雙語口頭發表</p>
+      </div>
+    </aside>
+
+    <!-- Main Content Body -->
+    <main class="app-main">
+
+      <!-- ====================================================================
+           Hero Section: Executive Overview
+           ==================================================================== -->
+      <section class="hero-banner" id="hero">
+        <div class="hero-meta">
+          <span class="hero-badge">🏛️ <strong>臺北市立大學</strong> 地生系</span>
+          <span class="hero-badge">🎯 <strong>115-1</strong> 地球物理通論</span>
+          <span class="hero-badge">👨‍🏫 <strong>授課教師</strong> 陳達毅 博士</span>
+        </div>
+
+        <h2 class="hero-title">以任務驅動與 AI 協同<br>透視看不見的地球內部構造</h2>
+
+        <p class="hero-desc">
+          本報告完整彙整《地球物理通論》課程手冊、18 週學習地圖、第一堂課 3 小時任務歷程、CER 科學論證、DEAR 建模循環、CLIL 雙語鷹架及人機協同數位工作流程。核心精神在於培養能以物理觀測量推演地下構造、善用 AI 查證工具、並具備中英科學表達能力的現代地球科學人才。
+        </p>
+
+        <div class="hero-quote">
+          <div class="bilingual-pair">
+            <span class="bilingual-zh">「如果我們不知道板塊構造理論，只拿到地形、地震、火山、重力、磁力與熱流資料，我們能不能自己推論出地球內部與表面正在發生什麼事？」</span>
+            <span class="bilingual-en">"If we did not know plate tectonics beforehand, given only topography, earthquakes, volcanoes, gravity, geomagnetism, and heat flow data, could we deduce what is happening inside and on the surface of the Earth?"</span>
+          </div>
+          <cite>— 課程核心探究問題 (Central Inquiry Question)</cite>
+        </div>
+
+        <div class="hero-actions">
+          <a href="#timeline" class="btn btn-primary">🚀 檢視第一堂課 3 小時任務</a>
+          <a href="#methods" class="btn btn-secondary">⚡ 體驗地震走時計算機</a>
+          <a href="#clil" class="btn btn-secondary">📖 查閱 CLIL 雙語句型庫</a>
+        </div>
+      </section>
+
+      <!-- ====================================================================
+           Section 1: 課程願景與三大支柱
+           ==================================================================== -->
+      <section class="section-block" id="overview">
+        <div class="section-header">
+          <div class="section-tag">Pillar 01</div>
+          <h2 class="section-title"><span>🧭</span> 課程願景與三大支柱</h2>
+          <p class="section-subtitle">打破單向死背名詞，結合科學知識、雙語表達與 AI 工具的整合學習</p>
+        </div>
+
+        <!-- Three Pillars Matrix -->
+        <div class="pillars-grid">
+          <div class="pillar-card geophysics">
+            <div class="pillar-icon">🌋</div>
+            <h3 class="pillar-title">地球物理學科知識</h3>
+            <div class="pillar-subtitle">Geophysical Knowledge</div>
+            <p class="pillar-desc">
+              掌握六大核心探勘方法：震測、重力、地磁、地電、地熱與板塊構造。練習從地表物理量（走時、重力異常、磁條帶等）逆推看不見的地下構造。
+            </p>
+            <div class="pillar-tags">
+              <span class="pill-tag">震測 Seismic</span>
+              <span class="pill-tag">重力 Gravity</span>
+              <span class="pill-tag">地磁 Magnetic</span>
+              <span class="pill-tag">板塊構造 Tectonics</span>
+            </div>
+          </div>
+
+          <div class="pillar-card clil">
+            <div class="pillar-icon">🌐</div>
+            <h3 class="pillar-title">雙語學習與科學表達</h3>
+            <div class="pillar-subtitle">CLIL / Science through English</div>
+            <p class="pillar-desc">
+              融入 4C 學習架構（Content, Communication, Cognition, Culture）。透過 8 層階梯句型庫，能精準運用中英文說明科學觀察、證據推理與模型修正。
+            </p>
+            <div class="pillar-tags">
+              <span class="pill-tag">4C Framework</span>
+              <span class="pill-tag">8-Level Sentences</span>
+              <span class="pill-tag">CER Argument</span>
+              <span class="pill-tag">Bilingual Portfolio</span>
+            </div>
+          </div>
+
+          <div class="pillar-card ai">
+            <div class="pillar-icon">💻</div>
+            <h3 class="pillar-title">資訊工具與 AI 素養</h3>
+            <div class="pillar-subtitle">AI & Digital Literacy</div>
+            <p class="pillar-desc">
+              不把 AI 當答案機器，而是假說產生與除錯夥伴。串接 Google Colab、PyGMT 0.17 繪圖、GitHub 數位歷程庫、3D 地形列印與 GitHub Pages 成果發布。
+            </p>
+            <div class="pillar-tags">
+              <span class="pill-tag">Gemini Prompting</span>
+              <span class="pill-tag">Google Colab</span>
+              <span class="pill-tag">PyGMT 0.17</span>
+              <span class="pill-tag">GitHub Pages</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Three Classroom Mottos -->
+        <div class="motto-grid">
+          <div class="motto-card">
+            <div class="motto-aspect">🔍 Science 探究維度</div>
+            <div class="motto-en">"How do we know?"</div>
+            <div class="motto-zh">我們怎麼知道？不要直接接受現成答案，追問認識的起源。</div>
+          </div>
+          <div class="motto-card">
+            <div class="motto-aspect">📊 Evidence 證據維度</div>
+            <div class="motto-en">"What evidence supports this idea?"</div>
+            <div class="motto-zh">什麼證據支持這個想法？一切主張均須扎根於可驗證的觀測資料。</div>
+          </div>
+          <div class="motto-card">
+            <div class="motto-aspect">🤖 AI Literacy 素養維度</div>
+            <div class="motto-en">"AI can generate an answer, but understanding the answer is your responsibility."</div>
+            <div class="motto-zh">AI 可以產生答案，但是理解、驗證並承擔答案是你的責任。</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ====================================================================
+           Section 2: 18 週學習路線圖
+           ==================================================================== -->
+      <section class="section-block" id="roadmap">
+        <div class="section-header">
+          <div class="section-tag">Pillar 02</div>
+          <h2 class="section-title"><span>🗺️</span> 18 週完整學習路線圖</h2>
+          <p class="section-subtitle">從基礎工具建置、野外實作量測、理論走時建模，邁向期末網頁公開發表</p>
+        </div>
+
+        <!-- Filter Controls -->
+        <div class="roadmap-filter-bar">
+          <div class="filter-group">
+            <strong>週次篩選：</strong>
+            <button class="btn btn-secondary btn-sm roadmap-filter-btn active" data-filter="all">全部 18 週</button>
+            <button class="btn btn-secondary btn-sm roadmap-filter-btn" data-filter="p1">前半期 (Week 1–8)</button>
+            <button class="btn btn-secondary btn-sm roadmap-filter-btn" data-filter="p2">後半期 (Week 9–18)</button>
+            <button class="btn btn-secondary btn-sm roadmap-filter-btn" data-filter="milestone">關鍵里程碑</button>
+          </div>
+          <div class="roadmap-hint" style="font-size: 0.82rem; color: var(--text-muted);">
+            💡 涵蓋野外折射震測實作、3D地形列印與期末發表
+          </div>
+        </div>
+
+        <!-- Timeline Items -->
+        <div class="roadmap-timeline">
+          <!-- Week 1 -->
+          <div class="week-item" data-week="1">
+            <div class="week-badge"><span class="w-num">W01</span><span class="w-label">Start</span></div>
+            <div class="week-content">
+              <div class="week-header">
+                <span class="week-topic">課程說明與系統安裝 (Orientation & Setup)</span>
+                <span class="tag-badge tool">工具奠基</span>
+              </div>
+              <p class="week-task">建立 2–3 人小組、完成 GitHub 帳號、開啟 Google Colab 測試走時公式 \(t=d/v\)、初探 Gemini 探究對話與 CER 框架。</p>
+            </div>
+          </div>
+
+          <!-- Week 2 -->
+          <div class="week-item" data-week="2">
+            <div class="week-badge"><span class="w-num">W02</span><span class="w-label">PyGMT</span></div>
+            <div class="week-content">
+              <div class="week-header">
+                <span class="week-topic">PyGMT 繪製全球地圖 (Global Topography)</span>
+                <span class="tag-badge tool">PyGMT 0.17</span>
+              </div>
+              <p class="week-task">在 Colab 中安裝 PyGMT 與 GMT 6.5，讀取 SRTM 地形高程網格，正交投影繪製全球地形與熱點分布，產出第一張科學地圖。</p>
+            </div>
+          </div>
+
+          <!-- Week 3 -->
+          <div class="week-item" data-week="3">
+            <div class="week-badge"><span class="w-num">W03</span><span class="w-label">Tectonics</span></div>
+            <div class="week-content">
+              <div class="week-header">
+                <span class="week-topic">板塊構造與 3D 建模 (Plate Tectonics & 3D Modeling)</span>
+                <span class="tag-badge tool">3D列印</span>
+              </div>
+              <p class="week-task">從台灣與西太平洋海溝地形建立數位高程模型 (DEM)，透過軟體轉為 STL 檔，準備進行 3D 地形實體列印。</p>
+            </div>
+          </div>
+
+          <!-- Week 4 -->
+          <div class="week-item" data-week="4">
+            <div class="week-badge"><span class="w-num">W04</span><span class="w-label">Model</span></div>
+            <div class="week-content">
+              <div class="week-header">
+                <span class="week-topic">板塊構造模型修正與展示 (Model Revision)</span>
+                <span class="tag-badge">概念整合</span>
+              </div>
+              <p class="week-task">結合地震分布、火山與海溝深度多重資料，檢視 3D 實體模型能解釋與無法解釋的局限，進行 DEAR 第一次循環修正。</p>
+            </div>
+          </div>
+
+          <!-- Week 5 -->
+          <div class="week-item field" data-week="5">
+            <div class="week-badge"><span class="w-num">W05</span><span class="w-label">Field</span></div>
+            <div class="week-content">
+              <div class="week-header">
+                <span class="week-topic">校園野外實驗：折射探勘 (Campus Seismic Refraction)</span>
+                <span class="tag-badge field">實地實作</span>
+              </div>
+              <p class="week-task">於校園操場/草地鋪設檢波器測線 (Geophones)，以大鐵鎚撞擊鐵板人工造波，記錄第一手現地初達波走時資料。</p>
+            </div>
+          </div>
+
+          <!-- Week 6 -->
+          <div class="week-item" data-week="6">
+            <div class="week-badge"><span class="w-num">W06</span><span class="w-label">Theory</span></div>
+            <div class="week-content">
+              <div class="week-header">
+                <span class="week-topic">折射探勘原理與走時模型 (Refraction Principles)</span>
+                <span class="tag-badge">理論推導</span>
+              </div>
+              <p class="week-task">解析司乃耳定律 (Snell's Law) 與臨界角，利用折射走時折線求取兩層波速 \(v_1, v_2\) 及表層深度 \(h\)。</p>
+            </div>
+          </div>
+
+          <!-- Week 7 -->
+          <div class="week-item" data-week="7">
+            <div class="week-badge"><span class="w-num">W07</span><span class="w-label">Integration</span></div>
+            <div class="week-content">
+              <div class="week-header">
+                <span class="week-topic">折射探勘整合理論與資料 (Field Data Integration)</span>
+                <span class="tag-badge">資料分析</span>
+              </div>
+              <p class="week-task">將校園野外真實觀測走時點繪製於坐標圖上，比對理論模型，撰寫野外實驗期中整合分析報告。</p>
+            </div>
+          </div>
+
+          <!-- Week 8 -->
+          <div class="week-item exam" data-week="8">
+            <div class="week-badge"><span class="w-num">W08</span><span class="w-label">Exam</span></div>
+            <div class="week-content">
+              <div class="week-header">
+                <span class="week-topic">期中考 (Midterm Examination)</span>
+                <span class="tag-badge milestone">佔比 40%</span>
+              </div>
+              <p class="week-task">考核地球物理基本觀念、走時公式推導、折射震測判讀、板塊構造多重證據以及 CER 科學論證結構。</p>
+            </div>
+          </div>
+
+          <!-- Week 9 -->
+          <div class="week-item" data-week="9">
+            <div class="week-badge"><span class="w-num">W09</span><span class="w-label">Gravity</span></div>
+            <div class="week-content">
+              <div class="week-header">
+                <span class="week-topic">重力與 Geoid 3D 列印 (Gravity & Geoid Visualization)</span>
+                <span class="tag-badge tool">3D列印</span>
+              </div>
+              <p class="week-task">將看不見的地球大地水準面 (Geoid) 起伏以 3D 模型列印，直觀感受地球重力場的不均勻性與質量分布。</p>
+            </div>
+          </div>
+
+          <!-- Week 10 -->
+          <div class="week-item" data-week="10">
+            <div class="week-badge"><span class="w-num">W10</span><span class="w-label">Density</span></div>
+            <div class="week-content">
+              <div class="week-header">
+                <span class="week-topic">重力異常與地下密度差異 (Gravity Anomalies)</span>
+                <span class="tag-badge">資料解釋</span>
+              </div>
+              <p class="week-task">學習自由空間異常 (Free-air) 與布格異常 (Bouguer Anomaly)，利用正異常與負異常推估沉積盆地與地函隆升。</p>
+            </div>
+          </div>
+
+          <!-- Week 11 -->
+          <div class="week-item" data-week="11">
+            <div class="week-badge"><span class="w-num">W11</span><span class="w-label">Lecture</span></div>
+            <div class="week-content">
+              <div class="week-header">
+                <span class="week-topic">地球物理專題演講 (Guest Special Lecture)</span>
+                <span class="tag-badge">職涯連結</span>
+              </div>
+              <p class="week-task">邀請業界/研究機構學者分享真實探勘案例、天然災害預警系統與現代地球物理職涯發展。</p>
+            </div>
+          </div>
+
+          <!-- Week 12 -->
+          <div class="week-item" data-week="12">
+            <div class="week-badge"><span class="w-num">W12</span><span class="w-label">Thermal</span></div>
+            <div class="week-content">
+              <div class="week-header">
+                <span class="week-topic">板塊構造與地熱 (Heat Flow & Geothermal)</span>
+                <span class="tag-badge">綠能探勘</span>
+              </div>
+              <p class="week-task">探討熱傳導方程式、地球內部熱源（放射性衰變與殘存熱）、中洋脊熱流分布及台灣大屯火山地熱探勘前景。</p>
+            </div>
+          </div>
+
+          <!-- Week 13-14 -->
+          <div class="week-item" data-week="13">
+            <div class="week-badge"><span class="w-num">W13</span><span class="w-label">EM</span></div>
+            <div class="week-content">
+              <div class="week-header">
+                <span class="week-topic">地電與地磁學 (Geomagnetism & Geoelectrics)</span>
+                <span class="tag-badge">電磁探測</span>
+              </div>
+              <p class="week-task">分析視電阻率測深法 (Resistivity sounding)、地球發電機原理 (Geodynamo) 與海底古地磁條帶對稱反轉證據。</p>
+            </div>
+          </div>
+
+          <!-- Week 15-16 Final Presentations -->
+          <div class="week-item final" data-week="15">
+            <div class="week-badge"><span class="w-num">W15</span><span class="w-label">Final</span></div>
+            <div class="week-content">
+              <div class="week-header">
+                <span class="week-topic">期末專題發表：GitHub Pages 成果展示 (Final Presentation)</span>
+                <span class="tag-badge milestone">公開發表</span>
+              </div>
+              <p class="week-task">各組公開 GitHub Pages 專題網站，以中英雙語進行口頭簡報：包含科學大問、PyGMT地圖、AI協同歷程、CER論證與DEAR模型。</p>
+            </div>
+          </div>
+
+          <!-- Week 17-18 Field / Internship -->
+          <div class="week-item" data-week="17">
+            <div class="week-badge"><span class="w-num">W17</span><span class="w-label">Intern</span></div>
+            <div class="week-content">
+              <div class="week-header">
+                <span class="week-topic">實習與參訪 (Field Visit & Professional Internship)</span>
+                <span class="tag-badge field">校外延伸</span>
+              </div>
+              <p class="week-task">參訪地震測報中心或地質調查研究機構，實地觀摩國家級地球物理連續觀測網與大型探勘儀器運作。</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ====================================================================
+           Section 3: 第一堂課 3 小時任務地圖
+           ==================================================================== -->
+      <section class="section-block" id="timeline">
+        <div class="section-header">
+          <div class="section-tag">Pillar 03</div>
+          <h2 class="section-title"><span>⏱️</span> 第一堂課 3 小時任務地圖 (Day 1 Blueprint)</h2>
+          <p class="section-subtitle">2026/09/09 09:00–12:00 逐時活動歷程、板書規劃與 CLIL 4C 全景剖析</p>
+        </div>
+
+        <div class="task-timeline-grid">
+          <!-- Task 1 -->
+          <div class="task-card">
+            <div class="task-top">
+              <span class="task-time-badge">09:00–09:10 (10 mins)</span>
+              <span class="tag-badge">Task 1</span>
+            </div>
+            <h3 class="task-title">教師自我介紹與探究思維開場</h3>
+            <div class="task-body">
+              陳達毅老師介紹個人專業（地震測報、預警、AI 地科應用）。確立課堂拒絕「老師給答案、學生抄答案」，宣示科學思考流程：<strong>Question → Evidence → Explanation/Model → Test → Revision</strong>。
+            </div>
+            <div class="clil-4c-box">
+              <div class="clil-4c-item"><strong>Content:</strong> 地球物理學家研究與地震預警本質</div>
+              <div class="clil-4c-item"><strong>Communication:</strong> "I observe that...", "The evidence shows that..."</div>
+              <div class="clil-4c-item"><strong>Cognition:</strong> 探究思考邏輯與假說驗證觀念</div>
+              <div class="clil-4c-item"><strong>Culture:</strong> 科學家重在跨域溝通與開放求證</div>
+            </div>
+          </div>
+
+          <!-- Task 2 -->
+          <div class="task-card">
+            <div class="task-top">
+              <span class="task-time-badge">09:10–09:30 (20 mins)</span>
+              <span class="tag-badge">Task 2</span>
+            </div>
+            <h3 class="task-title">課程理念與核心問題 (Geophysics = Geo + Physics)</h3>
+            <div class="task-body">
+              以台灣地形 3D 模型為引子（中央山脈、花東縱谷、海溝）。引出核心大問：在不預設板塊理論下，如何從觀測資料拼圖？界定 AI 為協作者（Collaborator）而非替代大腦。
+            </div>
+            <div class="clil-4c-box">
+              <div class="clil-4c-item"><strong>Content:</strong> Geophysics 定義、台灣宏觀地質地形特徵</div>
+              <div class="clil-4c-item"><strong>Communication:</strong> "Taiwan has a high mountain range in the center."</div>
+              <div class="clil-4c-item"><strong>Cognition:</strong> 比較直觀景觀與物理機制的深層關聯</div>
+              <div class="clil-4c-item"><strong>Culture:</strong> 現代科學倚賴跨尺度模型而非單一現象</div>
+            </div>
+          </div>
+
+          <!-- Task 3 -->
+          <div class="task-card">
+            <div class="task-top">
+              <span class="task-time-badge">09:30–09:40 (10 mins)</span>
+              <span class="tag-badge">Task 3</span>
+            </div>
+            <h3 class="task-title">上課方式與評量標準說明</h3>
+            <div class="task-body">
+              確立「老師示範 → 學生練習 → 小組探究 → 解釋發表」四部曲。說明評量結構：期中考 40%、作業歷程 50%、平時 10%。作業嚴格評量思考歷程（Process）而非單一答案。
+            </div>
+          </div>
+
+          <!-- Task 4 -->
+          <div class="task-card">
+            <div class="task-top">
+              <span class="task-time-badge">09:40–09:50 (10 mins)</span>
+              <span class="tag-badge">Task 4</span>
+            </div>
+            <h3 class="task-title">小組分工與協作機制建立</h3>
+            <div class="task-body">
+              2–3 人自由成組並推選組長。每組全員均須理解全貌，但建立四大責任輪值角色：
+              <div class="roles-grid">
+                <div class="role-card">
+                  <div class="role-title">👑 Group Leader</div>
+                  <div class="role-desc">統籌掌控每週進度、協調任務、把關作業與繳交時程。</div>
+                </div>
+                <div class="role-card">
+                  <div class="role-title">💻 Data / Code</div>
+                  <div class="role-desc">主責 Google Colab 執行、PyGMT 地圖繪製與資料格式清洗。</div>
+                </div>
+                <div class="role-card">
+                  <div class="role-title">🗣️ Explanation / CLIL</div>
+                  <div class="role-desc">負責中英文論述、專有名詞彙整、CER 句型打磨。</div>
+                </div>
+                <div class="role-card">
+                  <div class="role-title">🎨 Design / Web / 3D</div>
+                  <div class="role-desc">負責 GitHub Pages 網頁編排、視覺圖表與 3D 模型 STL 處理。</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Task 5 -->
+          <div class="task-card">
+            <div class="task-top">
+              <span class="task-time-badge">10:00–10:25 (25 mins)</span>
+              <span class="tag-badge">Task 5</span>
+            </div>
+            <h3 class="task-title">從 Chatbot 到 AI Agent：認識數位協同夥伴</h3>
+            <div class="task-body">
+              比較一般問答型 Chatbot（問→答）與具備工具調用、檔案讀寫與任務自主規劃能力的 AI Agent。盤點本課程工具矩陣：Gemini（概念與假說）、Codex（程式生成）、Antigravity（專案環境）、OpenCode（終端協作）。
+            </div>
+          </div>
+
+          <!-- Task 6 -->
+          <div class="task-card">
+            <div class="task-top">
+              <span class="task-time-badge">10:25–10:50 (25 mins)</span>
+              <span class="tag-badge">Task 6</span>
+            </div>
+            <h3 class="task-title">GitHub：打造個人科學數位學習歷程 (Portfolio)</h3>
+            <div class="task-body">
+              指導申請 GitHub 帳號，建立個人或小組儲存庫（如 <code>geophysics-learning-2026</code>），練習撰寫包含目標、假說與成果的標準 Markdown README.md。
+            </div>
+          </div>
+
+          <!-- Task 7 -->
+          <div class="task-card">
+            <div class="task-top">
+              <span class="task-time-badge">11:00–11:20 (20 mins)</span>
+              <span class="tag-badge">Task 7</span>
+            </div>
+            <h3 class="task-title">Google Colab：雲端數位實驗筆記本實作</h3>
+            <div class="task-body">
+              學生開啟 Colab 執行首段 Python 程式：設定地球平均半徑 6371 km，實作走時基礎物理公式 \(t = d/v\)（距離除以速度）。強調走時斜率是後續折射震測的核心。
+            </div>
+          </div>
+
+          <!-- Task 8 -->
+          <div class="task-card">
+            <div class="task-top">
+              <span class="task-time-badge">11:20–12:00 (40 mins)</span>
+              <span class="tag-badge">Task 8 & Exit</span>
+            </div>
+            <h3 class="task-title">地球物理本質（逆問題）與 Gemini 探究示範</h3>
+            <div class="task-body">
+              深入剖析「如何研究看不見的地下？」（Observe → Analyze → Infer）。示範利用 Gemini 探究「為什麼台灣周圍地震頻繁？」，示範階梯式提問、拒絕現成答案、轉化為 CER 論證。最後填寫 Exit Ticket 離堂。
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ====================================================================
+           Section 4: 地球物理核心方法與計算機
+           ==================================================================== -->
+      <section class="section-block" id="methods">
+        <div class="section-header">
+          <div class="section-tag">Pillar 04</div>
+          <h2 class="section-title"><span>🔬</span> 地球物理核心方法與「逆問題」探究</h2>
+          <p class="section-subtitle">敲西瓜聽聲音、醫療超音波與地心透視：六大觀測物理量與即時走時計算機</p>
+        </div>
+
+        <div class="methods-table-wrapper">
+          <table class="modern-table">
+            <thead>
+              <tr>
+                <th>探勘方法 Method</th>
+                <th>地表量測物理量 Observed Data</th>
+                <th>可推論之地下構造 Inferred Structure</th>
+                <th>生活比喻 Analog</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><span class="method-tag">震測 Seismic</span></td>
+                <td>地震波速度、走時、反射振幅 (Travel Time, Velocity)</td>
+                <td>地層深度、斷層面、隱沒帶形貌、地殼厚度 (Moho)</td>
+                <td>醫療超音波 (Ultrasound) 掃描體內組織</td>
+              </tr>
+              <tr>
+                <td><span class="method-tag">重力 Gravity</span></td>
+                <td>重力異常值 (Bouguer Anomaly, mGal)</td>
+                <td>地下密度差異、沈積盆地深度、山根 (Mountain roots)</td>
+                <td>敲西瓜手感與秤重判斷內部實心或空洞</td>
+              </tr>
+              <tr>
+                <td><span class="method-tag">地磁 Magnetic</span></td>
+                <td>地磁場強度與方向變化 (nT)、磁條帶</td>
+                <td>火成岩侵入體、斷層構造、海底擴張古地磁反轉</td>
+                <td>金屬探測器偵測埋藏金屬礦物</td>
+              </tr>
+              <tr>
+                <td><span class="method-tag">地電 Geoelectric</span></td>
+                <td>視電阻率 (Apparent Resistivity, Ω·m)</td>
+                <td>地下水含水層、地熱流體循環區、斷層破碎富水帶</td>
+                <td>人體體脂電阻測量計</td>
+              </tr>
+              <tr>
+                <td><span class="method-tag">地熱 Geothermal</span></td>
+                <td>熱流值 (Heat Flow, mW/m²)、地溫梯度</td>
+                <td>岩漿庫深度、地熱資源潛能、板塊熱演化歷史</td>
+                <td>紅外線額溫槍感測體內散熱狀況</td>
+              </tr>
+              <tr>
+                <td><span class="method-tag">大地測量 GPS</span></td>
+                <td>公厘級地表三維位移向量 (Displacement)</td>
+                <td>板塊當前運動速率、斷層應變累積速率、震後形變</td>
+                <td>智慧手錶連續監測運動軌跡與步態變化</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <!-- Interactive Travel-Time Calculator Widget -->
+        <div class="calc-widget">
+          <div class="calc-widget-header">
+            <div class="calc-title">
+              <span>⚡ 地震波走時與深層比例計算機</span>
+            </div>
+            <div class="calc-formula-badge">t = d / v</div>
+          </div>
+
+          <div class="calc-grid">
+            <div class="calc-inputs">
+              <div class="form-group">
+                <label for="calcPreset">選擇地層介質波速預設 (Velocity Preset):</label>
+                <select id="calcPreset" class="form-control">
+                  <option value="crust-p" selected>地殼典型 P 波 (P-wave in Crust) - 6.0 km/s</option>
+                  <option value="crust-s">地殼典型 S 波 (S-wave in Crust) - 3.5 km/s</option>
+                  <option value="mantle-p">上部地函 P 波 (Upper Mantle) - 8.0 km/s</option>
+                  <option value="sediment-p">表層鬆散沉積物 (Sediment Layer) - 2.0 km/s</option>
+                  <option value="water-p">海水聲速 (Water acoustic) - 1.5 km/s</option>
+                  <option value="custom">自訂數值 (Custom)</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label for="calcDistance">傳播距離 (Distance d in km):</label>
+                <input type="number" id="calcDistance" class="form-control" value="120" min="1" max="40000" step="1">
+              </div>
+
+              <div class="form-group">
+                <label for="calcVelocity">波速 (Velocity v in km/s):</label>
+                <input type="number" id="calcVelocity" class="form-control" value="6.0" min="0.1" max="20" step="0.1">
+              </div>
+            </div>
+
+            <div class="calc-results">
+              <div class="result-label" style="font-size: 0.85rem; color: var(--text-muted); text-transform: uppercase;">計算走時 (Travel Time)</div>
+              <div class="result-number" id="resultTravelTime">20.00</div>
+              <div class="result-unit">秒 (Seconds)</div>
+              <div style="margin-top: 10px; font-size: 0.88rem; color: var(--text-secondary);">
+                佔地球平均半徑 (6371 km) 比例：<strong id="resultEarthPercent" style="color: var(--accent-cyan);">1.88%</strong>
+              </div>
+              <p class="result-explain" id="resultExplain">
+                走時公式：t = d / v = 120 km ÷ 6.0 km/s = 20.00 秒。涵蓋區域性地殼至莫氏不連續面 (Moho) 臨界折射波傳播。
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ====================================================================
+           Section 5: 科學探究雙引擎：CER 與 DEAR
+           ==================================================================== -->
+      <section class="section-block" id="inquiry">
+        <div class="section-header">
+          <div class="section-tag">Pillar 05</div>
+          <h2 class="section-title"><span>💡</span> 科學探究雙引擎：CER 論證與 DEAR 建模</h2>
+          <p class="section-subtitle">如何將混亂的觀測資料轉化為無懈可擊的科學模型與可檢驗假說</p>
+        </div>
+
+        <!-- CER Studio -->
+        <h3 style="margin-bottom: 14px; font-size: 1.25rem;">🎯 CER 論證實例研究室 (Claim - Evidence - Reasoning)</h3>
+        <p style="color: var(--text-secondary); margin-bottom: 20px; font-size: 0.95rem;">
+          科學論證不是直接給予標準答案，而是闡述「為什麼相信這個答案」。請點擊下方案例切換地球物理經典論證：
+        </p>
+
+        <div class="cer-container">
+          <div class="case-selector-list">
+            <button class="case-btn active" data-case="taiwan">
+              <span class="case-name">🇹🇼 台灣地震帶空間分布</span>
+              <span class="case-sub">板塊聚合帶與地震條帶聚集</span>
+            </button>
+            <button class="case-btn" data-case="japan">
+              <span class="case-name">🇯🇵 日本東側隱沒帶深度</span>
+              <span class="case-sub">深海溝與傾斜和達-貝尼奧夫帶</span>
+            </button>
+            <button class="case-btn" data-case="refraction">
+              <span class="case-name">📐 折射震測雙斜率走時</span>
+              <span class="case-sub">臨界折射超越直達波之二層構造</span>
+            </button>
+            <button class="case-btn" data-case="gravity">
+              <span class="case-name">⚖️ 重力布格正異常高值</span>
+              <span class="case-sub">地下深部高密度侵入岩體</span>
+            </button>
+          </div>
+
+          <div class="cer-display-card">
+            <!-- Claim Block -->
+            <div class="cer-block claim">
+              <div class="cer-label">主張 (Claim) — 針對核心問題提出的可檢驗主張</div>
+              <div class="cer-text-zh" id="cerClaimZh">台灣周圍頻繁的地震活動與聚合型板塊交界密切相關。</div>
+              <div class="cer-text-en" id="cerClaimEn">Our claim is that earthquake activity around Taiwan is closely related to convergent plate interactions.</div>
+            </div>
+
+            <!-- Evidence Block -->
+            <div class="cer-block evidence">
+              <div class="cer-label">證據 (Evidence) — 來自儀器觀測或實驗的客觀數據</div>
+              <div class="cer-text-zh" id="cerEvidenceZh">觀測地震分布圖，地震高度集中於東部花東縱谷、琉球海溝與馬尼拉海溝一帶，並非隨機散布。</div>
+              <div class="cer-text-en" id="cerEvidenceEn">The earthquake map shows that earthquakes are concentrated in specific belts rather than being randomly distributed.</div>
+            </div>
+
+            <!-- Reasoning Block -->
+            <div class="cer-block reasoning">
+              <div class="cer-label">推理 (Reasoning) — 運用物理與地質原理連結證據與主張</div>
+              <div class="cer-text-zh" id="cerReasoningZh">若地震是由板塊擠壓造成，其震源分布應沿著造山帶與隱沒界面形成條帶狀排列，觀測資料完全吻合此預期。</div>
+              <div class="cer-text-en" id="cerReasoningEn">If earthquakes are caused by plate interactions, their locations should follow tectonic structures rather than occurring randomly.</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- DEAR Cycle -->
+        <h3 style="margin-top: 48px; margin-bottom: 14px; font-size: 1.25rem;">🔄 DEAR 科學建模循環 (Design - Elaborate - Apply - Revise)</h3>
+        <p style="color: var(--text-secondary); margin-bottom: 20px; font-size: 0.95rem;">
+          模型不是永恆真理，而是「可被檢驗與修正的解釋工具」。以板塊構造為例，科學家如何修正初始模型：
+        </p>
+
+        <div class="dear-grid">
+          <div class="dear-card">
+            <div class="dear-letter">D</div>
+            <div class="dear-title">Design 設計模型</div>
+            <div class="dear-sub">提出初始系統架構</div>
+            <div class="dear-desc">
+              初始假設：假定全球地震與火山是地表隨機發生的破裂現象 (Random distribution)。
+            </div>
+          </div>
+
+          <div class="dear-card">
+            <div class="dear-letter">E</div>
+            <div class="dear-title">Elaborate 充實細節</div>
+            <div class="dear-sub">納入全新獨立資料</div>
+            <div class="dear-desc">
+              加入全球地震震央圖與海溝地形，發現地震非隨機，而是高度集中在狹長帶狀區域。
+            </div>
+          </div>
+
+          <div class="dear-card">
+            <div class="dear-letter">A</div>
+            <div class="dear-title">Apply 應用預測</div>
+            <div class="dear-sub">產生可檢驗之預測</div>
+            <div class="dear-desc">
+              應用「剛性板塊邊界」模型，預測火山島弧與深海溝必定只存在於板塊相互碰撞交界處。
+            </div>
+          </div>
+
+          <div class="dear-card">
+            <div class="dear-letter">R</div>
+            <div class="dear-title">Revise 修正模型</div>
+            <div class="dear-sub">直面反例進行修正</div>
+            <div class="dear-desc">
+              發現夏威夷火山位於太平洋板塊正中央！因此修正模型，在板塊構造中納入<strong>熱點 (Hotspot)</strong>。
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ====================================================================
+           Section 6: CLIL 雙語科學語料庫
+           ==================================================================== -->
+      <section class="section-block" id="clil">
+        <div class="section-header">
+          <div class="section-tag">Pillar 06</div>
+          <h2 class="section-title"><span>🗣️</span> CLIL 雙語科學語料庫 (Sentence Bank)</h2>
+          <p class="section-subtitle">Level 1 到 Level 8 階梯式科學句型庫，支援即時關鍵字搜尋與地科專屬三例詳解</p>
+        </div>
+
+        <div class="clil-explorer">
+          <!-- Filter Toolbar -->
+          <div class="clil-toolbar">
+            <div class="search-box">
+              <span class="search-icon">🔍</span>
+              <input type="text" id="clilSearch" class="form-control" placeholder="搜尋英文句型、中文或地科關鍵字 (如 earthquake, trench, model)...">
+            </div>
+
+            <div class="level-filters">
+              <button class="pill-btn level-btn active" data-level="all">全部層級</button>
+              <button class="pill-btn level-btn" data-level="1">L1 現象</button>
+              <button class="pill-btn level-btn" data-level="2">L2 位置</button>
+              <button class="pill-btn level-btn" data-level="3">L3 比較</button>
+              <button class="pill-btn level-btn" data-level="4">L4 因果</button>
+              <button class="pill-btn level-btn" data-level="5">L5 證據</button>
+              <button class="pill-btn level-btn" data-level="6">L6 假說</button>
+              <button class="pill-btn level-btn" data-level="7">L7 檢驗</button>
+              <button class="pill-btn level-btn" data-level="8">L8 模型</button>
+            </div>
+          </div>
+
+          <!-- Sentence Cards List -->
+          <div class="sentence-list">
+
+            <!-- Level 1 -->
+            <div class="sentence-card" data-level="1">
+              <div class="sentence-level-tag">LEVEL 1 ｜ 描述現象 Describing Observations</div>
+              <div class="sentence-pattern">We observe that ______.</div>
+              <div class="sentence-zh">我們觀察到＿＿＿＿。</div>
+              <button class="examples-toggle">展開三例詳解 ▼</button>
+              <div class="examples-container">
+                <div class="example-item">
+                  <div class="ex-en">Ex 1: We observe that many earthquakes occur around Taiwan.</div>
+                  <div class="ex-zh">我們觀察到台灣周圍發生許多地震。</div>
+                </div>
+                <div class="example-item">
+                  <div class="ex-en">Ex 2: We observe that high mountains are concentrated in central Taiwan.</div>
+                  <div class="ex-zh">我們觀察到高山集中在台灣中部。</div>
+                </div>
+                <div class="example-item">
+                  <div class="ex-en">Ex 3: We observe that the first arrival time increases with distance.</div>
+                  <div class="ex-zh">我們觀察到初達時間隨距離增加。</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="sentence-card" data-level="1">
+              <div class="sentence-level-tag">LEVEL 1 ｜ 描述現象 Describing Observations</div>
+              <div class="sentence-pattern">The map / data shows that ______.</div>
+              <div class="sentence-zh">這張地圖／資料顯示＿＿＿＿。</div>
+              <button class="examples-toggle">展開三例詳解 ▼</button>
+              <div class="examples-container">
+                <div class="example-item">
+                  <div class="ex-en">Ex 1: The map shows the topography around Taiwan.</div>
+                  <div class="ex-zh">這張地圖顯示台灣周圍的地形。</div>
+                </div>
+                <div class="example-item">
+                  <div class="ex-en">Ex 2: The data show that earthquakes are not randomly distributed.</div>
+                  <div class="ex-zh">資料顯示地震並不是隨機分布。</div>
+                </div>
+                <div class="example-item">
+                  <div class="ex-en">Ex 3: The data show that seismic velocity increases with depth.</div>
+                  <div class="ex-zh">資料顯示地震波速度隨深度增加。</div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Level 2 -->
+            <div class="sentence-card" data-level="2">
+              <div class="sentence-level-tag">LEVEL 2 ｜ 描述位置 Describing Locations</div>
+              <div class="sentence-pattern">______ is located in / near / along ______.</div>
+              <div class="sentence-zh">＿＿＿＿位於＿＿＿＿／沿著＿＿＿＿分布。</div>
+              <button class="examples-toggle">展開三例詳解 ▼</button>
+              <div class="examples-container">
+                <div class="example-item">
+                  <div class="ex-en">Ex 1: Taiwan is located in East Asia along the convergent plate boundary.</div>
+                  <div class="ex-zh">台灣位於東亞聚合型板塊邊界上。</div>
+                </div>
+                <div class="example-item">
+                  <div class="ex-en">Ex 2: The Longitudinal Valley is located in eastern Taiwan.</div>
+                  <div class="ex-zh">花東縱谷位於台灣東部。</div>
+                </div>
+                <div class="example-item">
+                  <div class="ex-en">Ex 3: Many earthquakes are located near subduction trenches.</div>
+                  <div class="ex-zh">許多地震位於隱沒海溝附近。</div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Level 3 -->
+            <div class="sentence-card" data-level="3">
+              <div class="sentence-level-tag">LEVEL 3 ｜ 科學比較 Making Comparisons</div>
+              <div class="sentence-pattern">Compared with A, B is ______ / A is deeper than B.</div>
+              <div class="sentence-zh">與 A 相比，B 更＿＿＿＿。</div>
+              <button class="examples-toggle">展開三例詳解 ▼</button>
+              <div class="examples-container">
+                <div class="example-item">
+                  <div class="ex-en">Ex 1: Compared with continental crust, oceanic crust is thinner and denser.</div>
+                  <div class="ex-zh">與大陸地殼相比，海洋地殼更薄且密度更大。</div>
+                </div>
+                <div class="example-item">
+                  <div class="ex-en">Ex 2: P-wave velocity is faster than S-wave velocity.</div>
+                  <div class="ex-zh">P 波速度比 S 波速度更快。</div>
+                </div>
+                <div class="example-item">
+                  <div class="ex-en">Ex 3: Earthquakes under central Taiwan are deeper than those along the east coast.</div>
+                  <div class="ex-zh">台灣中部下方的地震深度比東海岸的地震更深。</div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Level 4 -->
+            <div class="sentence-card" data-level="4">
+              <div class="sentence-level-tag">LEVEL 4 ｜ 因果關係 Explaining Cause and Effect</div>
+              <div class="sentence-pattern">______ causes ______ / Because ______, ______.</div>
+              <div class="sentence-zh">＿＿＿＿導致＿＿＿＿／因為＿＿＿＿，所以＿＿＿＿。</div>
+              <button class="examples-toggle">展開三例詳解 ▼</button>
+              <div class="examples-container">
+                <div class="example-item">
+                  <div class="ex-en">Ex 1: Plate collision causes intense crustal deformation and earthquakes.</div>
+                  <div class="ex-zh">板塊碰撞造成劇烈的地殼變形與地震。</div>
+                </div>
+                <div class="example-item">
+                  <div class="ex-en">Ex 2: Because seismic velocity changes, seismic rays refract at layer boundaries.</div>
+                  <div class="ex-zh">因為波速改變，震波射線在地層交界面產生折射。</div>
+                </div>
+                <div class="example-item">
+                  <div class="ex-en">Ex 3: Subsurface density differences cause gravity anomalies.</div>
+                  <div class="ex-zh">地下密度差異導致重力異常。</div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Level 5 -->
+            <div class="sentence-card" data-level="5">
+              <div class="sentence-level-tag">LEVEL 5 ｜ 科學證據 Using Evidence</div>
+              <div class="sentence-pattern">The evidence shows that ______ / According to the data, ______.</div>
+              <div class="sentence-zh">證據顯示＿＿＿＿／根據資料顯示＿＿＿＿。</div>
+              <button class="examples-toggle">展開三例詳解 ▼</button>
+              <div class="examples-container">
+                <div class="example-item">
+                  <div class="ex-en">Ex 1: The evidence shows that hypocenters deepen toward the Eurasian continent.</div>
+                  <div class="ex-zh">證據顯示震源深度朝歐亞大陸方向加深。</div>
+                </div>
+                <div class="example-item">
+                  <div class="ex-en">Ex 2: According to GPS data, the Philippine Sea Plate moves northwestward.</div>
+                  <div class="ex-zh">根據 GPS 資料，菲律賓海板塊向西北方向移動。</div>
+                </div>
+                <div class="example-item">
+                  <div class="ex-en">Ex 3: This result supports the idea that the lower layer has a higher velocity.</div>
+                  <div class="ex-zh">這項結果支持了下層具有較高波速的想法。</div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Level 6 -->
+            <div class="sentence-card" data-level="6">
+              <div class="sentence-level-tag">LEVEL 6 ｜ 提出假說 Proposing Hypotheses</div>
+              <div class="sentence-pattern">We hypothesize that ______ / One possible explanation is ______.</div>
+              <div class="sentence-zh">我們假設＿＿＿＿／一個可能的解釋是＿＿＿＿。</div>
+              <button class="examples-toggle">展開三例詳解 ▼</button>
+              <div class="examples-container">
+                <div class="example-item">
+                  <div class="ex-en">Ex 1: We hypothesize that earthquake belts mark the boundaries of rigid plates.</div>
+                  <div class="ex-zh">我們假設地震帶標示出剛性板塊的邊界。</div>
+                </div>
+                <div class="example-item">
+                  <div class="ex-en">Ex 2: One possible explanation is that magma intrusion creates high gravity anomaly.</div>
+                  <div class="ex-zh">一個可能的解釋是岩漿侵入造成高重力異常。</div>
+                </div>
+                <div class="example-item">
+                  <div class="ex-en">Ex 3: If our hypothesis is correct, we expect to see refracted waves at distant stations.</div>
+                  <div class="ex-zh">如果我們的假說正確，我們預期在遠距離測站看見折射波初達。</div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Level 7 -->
+            <div class="sentence-card" data-level="7">
+              <div class="sentence-level-tag">LEVEL 7 ｜ 測試與驗證 Testing and Verification</div>
+              <div class="sentence-pattern">We can test this idea by ______ / The result is consistent with ______.</div>
+              <div class="sentence-zh">我們可以藉由＿＿＿＿測試這個想法／結果與＿＿＿＿一致。</div>
+              <button class="examples-toggle">展開三例詳解 ▼</button>
+              <div class="examples-container">
+                <div class="example-item">
+                  <div class="ex-en">Ex 1: We can test this idea by plotting earthquake focal mechanisms with PyGMT.</div>
+                  <div class="ex-zh">我們可以藉由使用 PyGMT 繪製震源機制解來檢驗這個想法。</div>
+                </div>
+                <div class="example-item">
+                  <div class="ex-en">Ex 2: The observed travel times are consistent with our theoretical model.</div>
+                  <div class="ex-zh">觀測到的走時與我們的理論模型完全一致。</div>
+                </div>
+                <div class="example-item">
+                  <div class="ex-en">Ex 3: We need more deep borehole data to determine whether this fault is active.</div>
+                  <div class="ex-zh">我們需要更多深孔鑽井資料才能確定這條斷層是否為活動斷層。</div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Level 8 -->
+            <div class="sentence-card" data-level="8">
+              <div class="sentence-level-tag">LEVEL 8 ｜ 科學模型 Building and Revising Models</div>
+              <div class="sentence-pattern">Our revised model suggests ______ / However, the model cannot explain ______.</div>
+              <div class="sentence-zh">我們修改後的模型認為＿＿＿＿／然而，該模型無法解釋＿＿＿＿。</div>
+              <button class="examples-toggle">展開三例詳解 ▼</button>
+              <div class="examples-container">
+                <div class="example-item">
+                  <div class="ex-en">Ex 1: Based on the new seismic profile, we revised our crustal thickness model.</div>
+                  <div class="ex-zh">根據新的震測剖面，我們修正了地殼厚度模型。</div>
+                </div>
+                <div class="example-item">
+                  <div class="ex-en">Ex 2: However, a simple two-layer model cannot explain the complex dipping interface.</div>
+                  <div class="ex-zh">然而，簡單的兩層水平模型無法解釋複雜的傾斜界面。</div>
+                </div>
+                <div class="example-item">
+                  <div class="ex-en">Ex 3: AI suggested that ..., but we verified it by checking travel-time equations.</div>
+                  <div class="ex-zh">AI 曾建議……，但我們透過檢驗走時方程式加以驗證。</div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- 10 Core Sentences Highlight -->
+        <div style="margin-top: 36px;">
+          <h3 style="margin-bottom: 16px; font-size: 1.2rem;">⭐ 整學期反覆運用的 10 大關鍵科學句型</h3>
+          <div style="background: var(--bg-card); border: 1px solid var(--border-card); border-radius: var(--radius-md); padding: 24px;">
+            <ol style="padding-left: 24px; color: var(--text-secondary); line-height: 1.8; font-size: 0.95rem;">
+              <li><strong style="color: var(--text-primary);">We observe that</strong> ______. (描述觀測事實)</li>
+              <li><strong style="color: var(--text-primary);">The data show that</strong> ______. (以數據客觀佐證)</li>
+              <li><strong style="color: var(--text-primary);">One possible explanation is</strong> ______. (提出初步猜想)</li>
+              <li><strong style="color: var(--text-primary);">We hypothesize that</strong> ______. (界定科學假說)</li>
+              <li><strong style="color: var(--text-primary);">If our hypothesis is correct, we expect</strong> ______. (演繹預測觀測結果)</li>
+              <li><strong style="color: var(--text-primary);">The evidence supports our hypothesis because</strong> ______. (論證推理因果)</li>
+              <li><strong style="color: var(--text-primary);">However, ______ cannot be explained by our model.</strong> (主動指出模型限制)</li>
+              <li><strong style="color: var(--text-primary);">Therefore, we revised our model.</strong> (依據反例更新模型)</li>
+              <li><strong style="color: var(--text-primary);">We need more data to determine whether</strong> ______. (界定不確定性與未來工作)</li>
+              <li><strong style="color: var(--accent-cyan);">AI suggested ______, but we verified it by ______.</strong> (人機協同查證金句)</li>
+            </ol>
+          </div>
+        </div>
+      </section>
+
+      <!-- ====================================================================
+           Section 7: 數位工作流與 AI 協同實作
+           ==================================================================== -->
+      <section class="section-block" id="ai-agent">
+        <div class="section-header">
+          <div class="section-tag">Pillar 07</div>
+          <h2 class="section-title"><span>🤖</span> 數位工作流與 AI 協同實作</h2>
+          <p class="section-subtitle">人機協作六步走、課堂 5 階 Gemini 探究 Prompt 一鍵複製與工具矩陣</p>
+        </div>
+
+        <!-- 5 Prompt Matrix -->
+        <h3 style="margin-bottom: 16px; font-size: 1.25rem;">📋 第一堂課 Gemini 探究 5 階 Prompts（點擊即可一鍵複製）</h3>
+
+        <div class="prompts-grid">
+          <!-- Prompt 1 -->
+          <div class="prompt-card">
+            <div class="prompt-header">
+              <div class="prompt-title">
+                <span class="tag-badge">Prompt 1</span>
+                <span>形成探究問題與三假說 (Hypothesis Generator)</span>
+              </div>
+              <button class="btn btn-secondary btn-sm copy-prompt-btn">📋 複製 Prompt</button>
+            </div>
+            <pre class="prompt-pre">我正在修一門地球物理通論課。
+今天的問題是：為什麼地震、火山、山脈與海溝常常集中在某些帶狀區域？
+
+請不要直接給我標準答案。
+請先用高中到大學一年級程度，幫我提出三個可能假說。
+每個假說都要說明：
+1. 這個假說如何解釋現象？
+2. 需要哪些證據來檢驗？
+3. 這個假說可能有什麼限制？</pre>
+          </div>
+
+          <!-- Prompt 2 -->
+          <div class="prompt-card">
+            <div class="prompt-header">
+              <div class="prompt-title">
+                <span class="tag-badge">Prompt 2</span>
+                <span>轉化為 CER 科學論證 (Transform to CER)</span>
+              </div>
+              <button class="btn btn-secondary btn-sm copy-prompt-btn">📋 複製 Prompt</button>
+            </div>
+            <pre class="prompt-pre">謝謝你提出的假說。請針對剛剛你認為最可能的一個假說，幫我整理成 CER 架構：
+1. Claim（主張）
+2. Evidence（證據）
+3. Reasoning（推理）
+
+請用中文說明，並在每一段最後附上一句適合大學生報告用的簡短英文科學句型。</pre>
+          </div>
+
+          <!-- Prompt 3 -->
+          <div class="prompt-card">
+            <div class="prompt-header">
+              <div class="prompt-title">
+                <span class="tag-badge">Prompt 3</span>
+                <span>嚴格的地球物理教授角色扮演 (Strict Reviewer)</span>
+              </div>
+              <button class="btn btn-secondary btn-sm copy-prompt-btn">📋 複製 Prompt</button>
+            </div>
+            <pre class="prompt-pre">請你現在扮演一位嚴格但有耐心的地球物理學教授。
+請審查我剛剛的 CER 論述，並指出：
+1. 我是否太快下了結論？
+2. 我的證據是否足夠充分？
+3. 哪裡的推理有跳躍或漏洞？
+4. 我還需要哪一種地表或地下資料（例如地震深度、重力異常或地形）才能真正說服你？</pre>
+          </div>
+
+          <!-- Prompt 4 -->
+          <div class="prompt-card">
+            <div class="prompt-header">
+              <div class="prompt-title">
+                <span class="tag-badge">Prompt 4</span>
+                <span>整理為 DEAR 建模循環 (Organize as DEAR Cycle)</span>
+              </div>
+              <button class="btn btn-secondary btn-sm copy-prompt-btn">📋 複製 Prompt</button>
+            </div>
+            <pre class="prompt-pre">現在我們要進行科學建模。請將我們剛才討論的探究歷程整理成 DEAR 循環：
+- D (Design): 初始模型為何？
+- E (Elaborate): 加入了什麼新資料？
+- A (Apply): 用模型做出了什麼預測？
+- R (Revise): 發現了什麼反例或限制，模型如何修正？
+
+請條列整理，並附上中英雙語對照。</pre>
+          </div>
+
+          <!-- Prompt 5 -->
+          <div class="prompt-card">
+            <div class="prompt-header">
+              <div class="prompt-title">
+                <span class="tag-badge">Prompt 5</span>
+                <span>建立第一週探究作業規格 (Generate Assignment Draft)</span>
+              </div>
+              <button class="btn btn-secondary btn-sm copy-prompt-btn">📋 複製 Prompt</button>
+            </div>
+            <pre class="prompt-pre">請根據今天的探究成果，幫我整理一份 Markdown 格式的作業草稿：
+包含：
+# Week 01 AI Inquiry Log
+## Research Question
+## Initial Hypothesis
+## CER Argument
+## DEAR Model
+## English Keywords
+## Reflection on AI Collaboration
+
+請保留我自己的思考軌跡，並突顯我如何批判查證你的回答。</pre>
+          </div>
+        </div>
+      </section>
+
+      <!-- ====================================================================
+           Section 8: 評量標準與 Exit Ticket
+           ==================================================================== -->
+      <section class="section-block" id="assessment">
+        <div class="section-header">
+          <div class="section-tag">Pillar 08</div>
+          <h2 class="section-title"><span>📝</span> 評量標準與 Exit Ticket 填寫器</h2>
+          <p class="section-subtitle">重視過程 (Process) 而非單一答案；即席產生課堂出門票 Markdown</p>
+        </div>
+
+        <!-- Grade Distribution Cards -->
+        <div class="motto-grid" style="margin-bottom: 32px;">
+          <div class="motto-card" style="border-top: 4px solid var(--accent-amber);">
+            <div class="motto-aspect">40% 期中紙筆測驗 (Midterm)</div>
+            <div class="motto-en">Week 8 Midterm Exam</div>
+            <div class="motto-zh">考核核心物理觀念、走時圖折線計算、Snell 定律推導與板塊構造證據綜合判讀。</div>
+          </div>
+          <div class="motto-card" style="border-top: 4px solid var(--accent-cyan);">
+            <div class="motto-aspect">50% 實作成績與歷程 (Portfolio)</div>
+            <div class="motto-en">Assignments & GitHub Pages</div>
+            <div class="motto-zh">Colab 程式運作、PyGMT 科學製圖、AI 探究 Log 保存、CER 報告與 GitHub Pages 網頁發表。</div>
+          </div>
+          <div class="motto-card" style="border-top: 4px solid var(--accent-emerald);">
+            <div class="motto-aspect">10% 課堂參與 (Participation)</div>
+            <div class="motto-en">Class Attendance & Exit Ticket</div>
+            <div class="motto-zh">課堂出勤、小組討論互動提問、每週 Exit Ticket 填寫與回饋反思。</div>
+          </div>
+        </div>
+
+        <!-- Interactive Exit Ticket Generator -->
+        <div class="exit-ticket-box">
+          <h3 style="margin-bottom: 8px; font-size: 1.3rem;">🎫 第一堂課出門票填寫器 (Interactive Exit Ticket)</h3>
+          <p style="color: var(--text-secondary); margin-bottom: 24px; font-size: 0.92rem;">
+            填寫完成後將即時轉換為標準 Markdown 格式，可直接複製並貼入您個人的 GitHub README.md 中作為學習歷程證明。
+          </p>
+
+          <div class="ticket-form-grid">
+            <div class="form-group">
+              <label for="ticketName">學生姓名 (Student Name):</label>
+              <input type="text" id="ticketName" class="form-control" placeholder="請輸入姓名">
+            </div>
+
+            <div class="form-group">
+              <label for="ticketGroup">組別名稱 / 組長 (Group):</label>
+              <input type="text" id="ticketGroup" class="form-control" placeholder="例如：第 3 組 / 組長：王小明">
+            </div>
+
+            <div class="form-group form-full">
+              <label for="ticketLearn">1. Today I learned that geophysics is... (今天我學到地球物理是...)</label>
+              <input type="text" id="ticketLearn" class="form-control" value="透過地表可量測的物理量（震波、重力、地磁），逆推看不見的地球內部構造">
+            </div>
+
+            <div class="form-group form-full">
+              <label for="ticketTool">2. One digital tool I used today was... (今天我使用的數位工具是...)</label>
+              <input type="text" id="ticketTool" class="form-control" value="Google Colab 與 Gemini 探究 Prompt">
+            </div>
+
+            <div class="form-group form-full">
+              <label for="ticketQuestion">3. One question I still have is... (下課前我仍然好奇的一個問題是...)</label>
+              <textarea id="ticketQuestion" class="form-control">如何從折射震測走時圖中兩條不同斜率的折線，精確計算出第二層岩層的真實波速？</textarea>
+            </div>
+          </div>
+
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
+            <strong style="color: var(--text-primary); font-size: 0.95rem;">📄 即時生成的 Markdown 成果預覽：</strong>
+            <button class="btn btn-primary btn-sm" id="copyTicketBtn">📋 一鍵複製 Markdown</button>
+          </div>
+
+          <div class="ticket-output-preview">
+            <pre id="ticketOutputPre" class="ticket-output-pre"></pre>
+          </div>
+        </div>
+      </section>
+
+      <!-- Footer -->
+      <footer class="app-footer">
+        <p><strong>地球物理通論 (General Geophysics)</strong> ｜ 臺北市立大學 地球環境暨生物資源學系</p>
+        <p style="margin-top: 6px;">授課教師：陳達毅（Dayi Chen） ｜ 課程數位成果彙整系統</p>
+        <p style="margin-top: 10px; font-size: 0.8rem; color: var(--text-muted);">
+          Explore the Earth · Connect Science · Embrace the Future · 
+          <a href="https://github.com/oceanicdayi/2026_Utaipei_Geophysics_0909" target="_blank" rel="noopener noreferrer">檢視 GitHub 原倉庫</a>
+        </p>
+      </footer>
+
+    </main>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
